@@ -8,7 +8,7 @@ BUILT_OBJECTS = $(shell echo "$(OBJECTS)" | sed -E 's~(src[^ ]+)~$(BUILD_DIR)\1~
 
 CFLAGS=-fPIC -g
 
-.PHONY: clean examples
+.PHONY: all lib clean examples
 
 all: clean lib examples
 
