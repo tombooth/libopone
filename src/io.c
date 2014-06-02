@@ -27,6 +27,12 @@ int has_opone_directories(char *path);
 int opone_read(char *path, opone_device *device_out) {
   if (!has_opone_directories(path)) return 1;
   else {
+    size_t synth_sound_len = strlen(path) + 18;
+    char synth_sound[synth_sound_len];
+
+    snprintf(synth_sound, synth_sound_len, "%s/synth/user/1.aif", path);
+
+    aiffc_read_header(synth_sound);
     return 0;
   }
 }
