@@ -3,8 +3,8 @@ BUILD_DIR = build/
 BIN_DIR = bin/
 LIB_DIR = lib/
 
-OBJECTS = $(shell find src -iname *.c | sed -E 's/^(.*)\.c$$/\1.o/')
-BUILT_OBJECTS = $(shell echo "$(OBJECTS)" | sed -E 's~^(.+)$$~$(BUILD_DIR)\1~')
+OBJECTS = $(shell find src -iname *.c | sed -E 's/^(.*)\.c$$/\1.o/g')
+BUILT_OBJECTS = $(shell echo "$(OBJECTS)" | sed -E 's~(src[^ ]+)~$(BUILD_DIR)\1~g')
 
 CFLAGS=-fPIC
 
